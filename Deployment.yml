@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: os-project
+
+spec:
+  selector:
+    matchLabels:
+      label: web-project
+  replicas: 3 
+  template:
+    metadata:
+      name: os-project
+      labels:
+        label: web-project
+    spec:
+      containers:   
+        - image: loayghareeb/project
+          name : container
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"      
